@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CITREL AI - ChatGPT</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+           background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(39,39,209,1) 32%, rgba(253,29,29,1) 98%, rgba(252,176,69,1) 100%);
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(39,39,209,1) 32%, rgba(253,29,29,1) 98%, rgba(252,176,69,1) 100%);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        .chat-container {
+            border: 1px solid #ced4da;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 1px;
+            background-color: #f1f1f1;
+            overflow-y: scroll;
+            max-height: 300px;
+        }
+        .user-message, .bot-message {
+            margin-bottom: 10px;
+        }
+        .user-message p, .bot-message p {
+            padding: 10px 15px;
+            border-radius: 15px;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+        .user-message p {
+            background-color: #007bff;
+            color: #fff;
+            align-self: flex-end;
+        }
+        .bot-message p {
+            background-color: #17a2b8;
+            color: #fff;
+            align-self: flex-start;
+        }
+        .input-container {
+            display: flex;
+            margin-top: 20px;
+        }
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            font-size: 16px;
+        }
+        #send-button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #send-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="text-align: center;">CITREL AI</h1>
+    <div class="chat-container" id="chat-container">
+        <div class="bot-message"><p>Witaj!Jestem CitrelAI-BOT , Jak mogę  Ci dzisiaj pomóc?</p></div>
+    </div>
+    <div class="input-container">
+        <input type="text" id="user-input" placeholder="Napisz wiadomość...">
+        <button id="send-button" onclick="sendMessage()">Podaj kod</button>
+    </div>
+</div>
+
+<script>
+    function sendMessage() {
+        var userInput = document.getElementById('user-input');
+        var userMessage = userInput.value;
+        userInput.value = '';
+
+        var chatContainer = document.getElementById('chat-container');
+
+        var userDiv = document.createElement('div');
+        userDiv.className = 'user-message';
+        userDiv.innerHTML = '<p>' + userMessage + '</p>';
+        chatContainer.appendChild(userDiv);
+
+        // Simulate AI response (replace this with actual AI processing)
+        var botDiv = document.createElement('div');
+        botDiv.className = 'bot-message';
+        botDiv.innerHTML = '<p>Aktualnie jestem podczaj zmian, chwilowo niemogeę nic wygenerować.</p>';
+        chatContainer.appendChild(botDiv);
+
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+</script>
+
+</body>
+</html>
